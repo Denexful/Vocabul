@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Vocabul.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Uid="colorPrimary" x:Key="NavigationPrimary">#c0392b</Color>
+            <Style TargetType="NavigationPage">
+                <Setter x:Uid="colorPrimary" Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            
+            <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeBrands">
+                <On Platform="Android" 
+          Value="FontAwesome5BrandsRegular.otf#Regular" />
+                <On Platform="iOS" 
+          Value="FontAwesome5Brands-Regular" />
+                <On Platform="UWP" 
+          Value="/Assets/FontAwesome5Brands.otf#Font Awesome 5 Brands" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeSolid">
+                <On Platform="Android" 
+          Value="FontAwesome5FreeSolid.otf#Regular" />
+                <On Platform="iOS" 
+          Value="FontAwesome5Free-Solid" />
+                <On Platform="UWP" 
+          Value="/Assets/FontAwesome5Solid.otf#Font Awesome 5 Free" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeRegular">
+                <On Platform="Android" 
+          Value="FontAwesome5FreeRegular.otf#Regular" />
+                <On Platform="iOS" 
+          Value="FontAwesome5Free-Regular" />
+                <On Platform="UWP" 
+          Value="/Assets/FontAwesome5Regular.otf#Font Awesome 5 Free" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

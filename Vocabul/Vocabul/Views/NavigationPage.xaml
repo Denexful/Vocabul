@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:local="clr-namespace:Vocabul.Views"
+            mc:Ignorable="d"
+            x:Class="Vocabul.Views.TabbedMain">
+  <!--Pages can be added as references or inline-->
+
+    <TabbedPage.BarBackgroundColor>
+        <Color x:Uid="colorPrimary">#c0392b</Color>
+    </TabbedPage.BarBackgroundColor>
+    
+    <TabbedPage.Children>
+    <NavigationPage Title="Test" >
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf039;"></FontImageSource>
+            </NavigationPage.IconImageSource>
+         <x:Arguments>
+            <local:TestPage Title="TestPage"/>
+        </x:Arguments>
+    </NavigationPage>
+
+        <NavigationPage Title="Select" >
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf120;"></FontImageSource>
+            </NavigationPage.IconImageSource>
+            <x:Arguments>
+                <local:Select Title="Select on a group name for the test"/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="List" >
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf03a;"></FontImageSource>
+            </NavigationPage.IconImageSource>
+            <x:Arguments>
+                <local:Vocal_List Title="List"/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Editor" >
+            <NavigationPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf013;"></FontImageSource>
+            </NavigationPage.IconImageSource>
+            <x:Arguments>
+                <local:Editor Title="Editor"/>
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>

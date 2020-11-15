@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Vocabul.Views.Select">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#ff6666" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Grid Padding="0, 0, 0, 0" Margin="0, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Padding="0" Margin="0" Text="Selected groups:" Grid.Column="0" Grid.Row="0"></Label>
+                <Label Padding="0" Margin="0" Text="{Binding SelectedLessionNames, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Start" ></Label>
+            </Grid>
+            <CollectionView x:Name="LessionSelection" ItemsSource="{Binding ListViewLession, Mode=TwoWay}" SelectionMode="Multiple" SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="0,0, 0, 0" Margin="0, 0, 0, 0" Spacing="0">
+                            <Frame OutlineColor="LightGray" BackgroundColor="Transparent">
+
+                                <Grid Padding="0, 0, 0, 0" Margin="0, 0, 0, 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Modul_Name, Mode=TwoWay}" FontAttributes="Bold" Grid.Column="0" />
+                                    <Label Text="Vocables:" HorizontalTextAlignment="End" FontAttributes="Bold" Grid.Column="1" />
+                                    <Label Text="{Binding Vocables.Count}" FontAttributes="Bold" Grid.Column="2" />
+
+                                    <!--<Label Text="&#xf078;" Grid.Column="1"
+                                             VerticalOptions="CenterAndExpand" 
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                            HorizontalOptions="End" >
+                                    <Label.Triggers>
+                                        <DataTrigger  TargetType="Label"
+                                                      Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Text"
+                                                          Value="&#xf077;" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>-->
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

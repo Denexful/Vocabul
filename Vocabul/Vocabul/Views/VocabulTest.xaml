@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vocabul.Views.VocabulTest">
+    <ContentPage.Content>
+        <StackLayout Spacing="0" Margin="10">
+            <CollectionView ItemsSource="{Binding TestVocables,Mode=TwoWay}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1" />
+                            </Grid.ColumnDefinitions>
+                            <Entry MaxLength="30" Grid.Column="0" Text="{Binding English, Mode=TwoWay}" VerticalTextAlignment="Center"/>
+                            <BoxView Color="#D3D3D3" Grid.Column="1"/>
+                            <BoxView Grid.Row="1" Grid.Column="0" Color="#D3D3D3"></BoxView>
+                            <Entry MaxLength="30" Grid.Column="2" Text="{Binding German, Mode=TwoWay}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <BoxView Grid.Row="1" Grid.Column="2" Color="#D3D3D3"></BoxView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Done" Clicked="TestDone_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:ButtonCircle.FormsPlugin.Abstractions;assembly=ButtonCircle.FormsPlugin.Abstractions"
+             x:Class="Vocabul.Views.TestPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame Margin="10,10,10,0" CornerRadius="10" HasShadow="True" >
+                <StackLayout VerticalOptions="Start" >
+           
+                    <Label Text="{Binding Title,Mode=TwoWay}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="20"></Label>
+                    <Button 
+                 FontFamily="{StaticResource FontAwesomeSolid}"
+                 Text="&#xf04b;"
+                 VerticalOptions="Center"
+                 FontSize="30" TextColor="#34495e" 
+                 HeightRequest="100" WidthRequest="100" 
+                 HorizontalOptions="Center"
+                 CornerRadius="70"
+                 BackgroundColor="#DCDCDC"
+                 Clicked="Button_Clicked">
+                    </Button>
+                  
+                </StackLayout>
+                </Frame>
+                <Frame VerticalOptions="CenterAndExpand" CornerRadius="10" HasShadow="True" Margin="10,10,10,0">
+                    <StackLayout Padding="0,0,0,40" >
+                        <Label  Margin="10,10,0,0" Text="Selected Modules:" FontSize="15"></Label>
+
+                        <ScrollView BackgroundColor="#ecf0f1" HeightRequest="100"  VerticalScrollBarVisibility="Always" Padding="10,10,0,40" >
+                        <StackLayout BindableLayout.ItemsSource="{Binding TestModel.Modul_Names, Mode=TwoWay}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="- " />
+                                                <Span Text="{Binding}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                </Frame>
+                <StackLayout VerticalOptions="End" BackgroundColor="#c0392b">
+
+                    <BoxView Margin="10,0,10,0" HeightRequest="1"  Color="Transparent"></BoxView>
+                    <Grid Padding="0,10,0,20"  HorizontalOptions="End">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="LeftMode" Clicked="LeftMode_Clicked" Source="LeftOnly.png" WidthRequest="35" HeightRequest="35" Grid.Column="0" Grid.Row="0" Opacity="0.5" VerticalOptions="End" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton x:Name="RandomMode" Clicked="RandomMode_Clicked" Source="Random.png" WidthRequest="35" HeightRequest="35" Grid.Column="1" Grid.Row="0" Opacity="0.5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton x:Name="RightMode" Clicked="RightMode_Clicked" Source="RightOnly.png" WidthRequest="35" HeightRequest="35" Grid.Column="2" Grid.Row="0" Opacity="0.5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"></ImageButton>
+                    </Grid>
+
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Vocabul.Views.Vocal_List"
+             xmlns:a="clr-namespace:Vocabul.ViewModels">
+    <ContentPage.BindingContext>
+        <a:Vocal_ListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout >
+            <CollectionView ItemsSource="{Binding ListViewLession, Mode=TwoWay}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Spacing="0">
+                            <Expander>
+                                <Expander.Header >
+                                    <Frame BorderColor="#e6e6e6">
+                                        <Grid Padding="0, 0, 0, 0" Margin="0, 0, 0, 0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="1" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="8*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Modul_Name, Mode=TwoWay}" FontAttributes="Bold" Grid.Column="0" />
+                                            <Label Text="&#xf078;" Grid.Column="1"
+                                             VerticalOptions="CenterAndExpand" 
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                            HorizontalOptions="End" >
+                                                <Label.Triggers>
+                                                    <DataTrigger  TargetType="Label"
+                                                      Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                                        <Setter Property="Text"
+                                                          Value="&#xf077;" />
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                        </Grid>
+                                    </Frame>
+                                </Expander.Header>
+                                <StackLayout Padding="21, 0, 21, 0" Margin="0, 0, 0, 0"  Spacing="0">
+                                    <CollectionView ItemsSource="{Binding Vocables,Mode=TwoWay}" >
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid RowSpacing="0" ColumnSpacing="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="1" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="4*" />
+                                                        <ColumnDefinition Width="1" />
+                                                        <ColumnDefinition Width="4*" />
+                                                        <ColumnDefinition Width="1" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" Text="{Binding English, Mode=TwoWay}" VerticalTextAlignment="Center"/>
+                                                    <BoxView Color="#D3D3D3" Grid.Column="1"/>
+                                                    <BoxView Grid.Row="1" Grid.Column="0" Color="#D3D3D3"></BoxView>
+                                                    <Label Grid.Column="2" Text="{Binding German, Mode=TwoWay}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                                    <BoxView Color="#D3D3D3" Grid.Column="3" />
+                                                    <BoxView Grid.Row="1" Grid.Column="2" Color="#D3D3D3"></BoxView>
+                                                    <Label Grid.Column="4" HorizontalTextAlignment="End" Text="{Binding Counter, Mode=TwoWay}" VerticalTextAlignment="Center" />
+                                                    <BoxView Grid.Row="1" Grid.Column="4" Color="#D3D3D3"></BoxView>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </Expander>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

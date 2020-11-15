@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vocabul.Views.EvaluationPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <ScrollView VerticalOptions="Center"  VerticalScrollBarVisibility="Always">
+                <Grid  VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"></RowDefinition>
+                        <RowDefinition Height="5*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Frame CornerRadius="10" Padding="0,0,0,0" Margin="5,5,5,5" BackgroundColor="#F1948A"  Grid.Column="0" Grid.Row="0">
+                     
+                    <CollectionView ItemsSource="{Binding WrongVocables,Mode=TwoWay}" Margin="0" HeightRequest="50">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                
+                                <Grid Margin="0" RowSpacing="0" ColumnSpacing="0" Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Grid.Column="0" Text="{Binding English, Mode=TwoWay}" VerticalTextAlignment="Center" BackgroundColor="#F1948A" HorizontalTextAlignment="Center"/>
+                                    <BoxView Color="#D3D3D3" Grid.Column="1"/>
+                                    <BoxView Grid.Row="1" Grid.Column="0" Color="#D3D3D3"></BoxView>
+                                    <Label Grid.Column="2" Text="{Binding German, Mode=TwoWay}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="#F1948A"/>
+                                    <BoxView Color="#D3D3D3" Grid.Column="3" />
+                                    <BoxView Grid.Row="1" Grid.Column="2" Color="#D3D3D3"></BoxView>
+                                    <Label Grid.Column="4" HorizontalTextAlignment="Center" Text="+1" VerticalTextAlignment="Center" BackgroundColor="#F1948A"/>
+                                    <BoxView Grid.Row="1" Grid.Column="4" Color="#D3D3D3"></BoxView>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    </Frame>
+                    <Frame CornerRadius="10" Padding="0,0,0,0" Margin="5,5,5,5" BackgroundColor="#52BE80" Grid.Column="1" Grid.Row="0">
+                    <CollectionView ItemsSource="{Binding CorrectVocables,Mode=TwoWay}" Margin="0">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowSpacing="0" ColumnSpacing="0" Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.ColumnSpan="5" HeightRequest="35" Text="{Binding}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#52BE80"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+
+            <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+                <StackLayout>
+                    <Frame BackgroundColor="#52BE80" CornerRadius="10" Padding="0,0,0,0" Margin="5,10,5,10">
+                    <CollectionView ItemsSource="{Binding GoodVocables,Mode=TwoWay}" Margin="5">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding English, Mode=TwoWay}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#52BE80"/>
+                                    <BoxView Color="#D3D3D3" Grid.Column="1"/>
+                                    <BoxView Grid.Row="1" Grid.Column="0" Color="#D3D3D3"></BoxView>
+                                    <Label Grid.Column="2" Text="{Binding German, Mode=TwoWay}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="#52BE80"/>
+                                    <BoxView Color="#D3D3D3" Grid.Column="3" BackgroundColor="#52BE80"/>
+                                    <BoxView Grid.Row="1" Grid.Column="2" Color="#D3D3D3"></BoxView>
+                                    <Label Grid.Column="4" HorizontalTextAlignment="Center" Text="-1" VerticalTextAlignment="Center" BackgroundColor="#52BE80"/>
+                                    <BoxView Grid.Row="1" Grid.Column="4" Color="#D3D3D3"></BoxView>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+            <Button Clicked="Finish_Clicked" Text="Finish"></Button>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Vocabul.Views.Vocal_List"
-             xmlns:a="clr-namespace:Vocabul.ViewModels">
+             xmlns:a="clr-namespace:Vocabul.ViewModels" xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.BindingContext>
         <a:Vocal_ListViewModel/>
     </ContentPage.BindingContext>
@@ -15,8 +15,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="0, 0, 0, 0" Margin="0, 0, 0, 0" Spacing="0">
-                            <Expander>
-                                <Expander.Header >
+                            <behaviors:Expander>
+                                <behaviors:Expander.Header >
                                     <Frame BorderColor="#e6e6e6">
                                         <Grid Padding="0, 0, 0, 0" Margin="0, 0, 0, 0">
                                             <Grid.RowDefinitions>
@@ -34,7 +34,7 @@
                                             HorizontalOptions="End" >
                                                 <Label.Triggers>
                                                     <DataTrigger  TargetType="Label"
-                                                      Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                                      Binding="{Binding Source={RelativeSource AncestorType={x:Type behaviors:Expander}}, Path=IsExpanded}"
                                                      Value="True">
                                                         <Setter Property="Text"
                                                           Value="&#xf077;" />
@@ -43,7 +43,7 @@
                                             </Label>
                                         </Grid>
                                     </Frame>
-                                </Expander.Header>
+                                </behaviors:Expander.Header>
                                 <StackLayout Padding="21, 0, 21, 0" Margin="0, 0, 0, 0"  Spacing="0">
                                     <CollectionView ItemsSource="{Binding Vocables,Mode=TwoWay}" >
                                         <CollectionView.ItemTemplate>
@@ -73,7 +73,7 @@
                                         </CollectionView.ItemTemplate>
                                     </CollectionView>
                                 </StackLayout>
-                            </Expander>
+                            </behaviors:Expander>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
